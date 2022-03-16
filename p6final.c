@@ -3,7 +3,7 @@ void input_string(char *a);
 int str_reverse(char *string, char *substring);
 void output(char *string, char *substring, int index); */
 
-int string_length(char *s)
+/*int string_length(char *s)
 {
   int i;
   for(i=0;s[i]!='\0';i++);

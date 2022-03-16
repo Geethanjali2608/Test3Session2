@@ -1,1 +1,130 @@
 
+ gcc -g p5final.c
+ ./a.out
+no. of inputs(n value):
+3
+enter value:
+2
+enter value:
+4
+enter value:
+3
+ largest is 4 and its index is 2 
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8d6: file p5final.c, line 36.
+(gdb) r
+Starting program: /home/runner/Test3Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p5final.c:36
+36  {
+(gdb) n
+38    n=input_size();
+(gdb) s
+input_size () at p5final.c:3
+3   {
+(gdb) n
+5     printf("no. of inputs(n value):\n");
+(gdb) n
+no. of inputs(n value):
+6     scanf("%d",&n);
+(gdb) n
+3
+7     return n;
+(gdb) p n
+$1 = 3
+(gdb) n
+8   }
+(gdb) n
+main () at p5final.c:39
+39    float a[n];
+(gdb) n
+40    input_coefficients(n,a);
+(gdb) s
+input_coefficients (n=3, a=0x7ffecab2a120) at p5final.c:11
+11    for(int i=0;i<n;i++)
+(gdb) n
+13        printf("enter value:\n");
+(gdb) n
+enter value:
+14        scanf("%f",&a[i]);
+(gdb) n
+4
+11    for(int i=0;i<n;i++)
+(gdb) n
+13        printf("enter value:\n");
+(gdb) n
+enter value:
+14        scanf("%f",&a[i]);
+(gdb) n
+3
+11    for(int i=0;i<n;i++)
+(gdb) n
+13        printf("enter value:\n");
+(gdb) n
+enter value:
+14        scanf("%f",&a[i]);
+(gdb) n
+8
+11    for(int i=0;i<n;i++)
+(gdb) n
+16  }
+(gdb) n
+main () at p5final.c:41
+41    largest=find_largest(n,a);
+(gdb) s
+find_largest (n=3, a=0x7ffecab2a120) at p5final.c:19
+19  int largest=a[0];
+(gdb) n
+20    for(int i=0;i<=n;i++)
+(gdb) n
+22        if(a[i]>largest)
+(gdb) n
+20    for(int i=0;i<=n;i++)
+(gdb) n
+22        if(a[i]>largest)
+(gdb) n
+20    for(int i=0;i<=n;i++)
+(gdb) n
+22        if(a[i]>largest)
+(gdb) n
+24          largest=a[i];
+(gdb) n
+25          int c=i;
+(gdb) n
+20    for(int i=0;i<=n;i++)
+(gdb) n
+22        if(a[i]>largest)
+(gdb) n
+20    for(int i=0;i<=n;i++)
+(gdb) n
+28   return largest;
+(gdb) n
+29  }
+(gdb) p largest
+$2 = 8
+(gdb) n
+main () at p5final.c:42
+42    out_put(n,a,largest);
+(gdb) n
+ largest is 8 and its index is 3 
+43    return 0;
+(gdb) n
+44  }
+(gdb)
