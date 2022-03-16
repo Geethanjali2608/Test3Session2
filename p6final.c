@@ -1,32 +1,82 @@
-/* Write a program to find the index of a substring of a string.
-void input_string(char *a);
-int str_reverse(char *string, char *substring);
-void output(char *string, char *substring, int index); */
-
-/*int string_length(char *s)
+#include <stdio.h>
+#include <string.h>
+void input_string(char *a)
 {
-  int i;
-  for(i=0;s[i]!='\0';i++);
-  return i;
+    printf("enter the string\n");
+    fgets(a,200,stdin);  
 }
-
-int string_ncmp(char *s1,char *s2)
+int count_words(char *string)
 {
-  for(int i=0; i<n && s1[i]==s2[i] && s1[i] != '\0';i++);
-  return s1[i] - s2[i];
+    char *b=strtok(string," ");
+    int count=0;
+    while(b!=NULL)
+    {
+        count++;
+        printf("%s ",b);
+        b=strtok(NULL," ");
+    }
+    return count;
 }
-
-
-int string_index(char *s, char *subs)
+void output(char *string,int no_words)
 {
-  int l1=string_lenght(s);
-  int l2=string_lenght(subs);
-  if l1 < l2
-      return -1;
-  for(int i=0;i<l1-l2;i++)
-    if (string_nscmp(s,subs))
-      return i;
-  return -1;
+    printf("is %d",no_words);
 }
+int main()
+{
+    char s[20];
+    input_string(s);
+    printf("the number of words in the string ");
+    output(s,count_words(s));
+}
+/*#include<stdio.h>
+#include<string.h>
+void input_string(char *a)
+{
+  printf("input:\n");
+  scanf("%s",a);
+}
+int count_words(char *str[])
+{
+  int count = 0;
+  int in_word = 0;
+  int i = 0;
+  do {
+     if (str[i] == '' || str[i] == '\t' || str[i] == '\0') {
+       if(in_word)
+       {
+         in_word = 0;
+         count++;
+       }
+     } 
+     else 
+     {
+       in_word = 1;
+     }
+  } 
+    while(str[i++]);
 
-/* Understand and debug the functions and write main */
+  return count;
+}
+  /*int i,no_words;
+  no_words=1;
+  for(i=0;a[n]!='\0';i++)
+    {
+      if(a[i]==""|| a[i]=='\n' || a[i])
+        {
+          no_words++;
+        }
+    }
+  return no_words;
+void output(char *str,int count)
+{
+  printf("%d\n",count);
+}
+int main()
+{
+  char a[100],str[];
+  int i,count;
+  input_string(a);
+  count_words(str);
+  output(a,count);
+  return 0;
+}*/
