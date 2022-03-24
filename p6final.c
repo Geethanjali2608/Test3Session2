@@ -7,24 +7,27 @@ void input_string(char *a)
 }
 int count_words(char *string)
 {
-    char *b=strtok(string," ");
-    int count=0;
-    while(b!=NULL)
+ int count=0;
+  for(int i=0;string[i]!='\0';i++)
     {
-        count++;
-        printf("%s ",b);
-        b=strtok(NULL," ");
+      if(string[i]==' ')
+      {
+        count=count+1;
+      }
     }
-    return count;
+  return count; 
+    
 }
 void output(char *string,int no_words)
 {
-    printf("is %d",no_words);
+    printf("is %d",no_words+1);
 }
 int main()
 {
-    char s[20];
-    input_string(s);
-    printf("the number of words in the string ");
-    output(s,count_words(s));
+  char a[100];
+  input_string(a);
+  printf("the number of words in the string ");
+  int no_words=count_words(a);
+  output(a,no_words);
+  return 0;
 }
